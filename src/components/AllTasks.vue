@@ -12,13 +12,13 @@
 
 <script>
 import Task from "../components/Task.vue";
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "AllTasks",
   data() {
       return {
-         
+
       };
    },
    created() {
@@ -27,12 +27,15 @@ export default {
    },
    updated() {
       this.$emit("loading", false);
+      this.findPending();
    },
    computed: {
       ...mapGetters(["getTodos"]),
-   },
+
+      },
    methods: {
       ...mapActions(["fetchTodos",]),
+      ...mapMutations(["findPending"]),
       
    },
    props: {

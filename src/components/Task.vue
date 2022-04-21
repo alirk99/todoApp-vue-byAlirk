@@ -1,5 +1,5 @@
 <template>
-  <v-main>
+  <v-main v-show="display">
       <v-hover v-slot="{ hover }">
       <v-list-item v-if="todoField" > 
          <v-list-item-action>
@@ -66,11 +66,24 @@ export default {
          }
       };
    },
-   computed: {
-      ...mapGetters(["getTodos"]),
-   },
    props: {
       task: Object,
+   },
+   computed: {
+      ...mapGetters(["getTodosDisplay"]),
+      display() {
+         console.log("display function");
+         switch (this.getTodosDisplay) {
+            case 'completed':
+               return this.task.status
+            case 'active':
+               return !this.task.status
+            case 'all':
+               return true
+            default:
+               return true
+         }
+      }
    },
    methods: {
       ...mapActions(["deleteTodo", "updateTodo"]),
@@ -104,9 +117,7 @@ export default {
             title: "",
             status: false,
          };
-         // this.editedTodo.title = "";
-         console.log('this.editedTodo', this.editedTodo);
-         console.log('this.getTodos[3]',this.getTodos[3]);
+
       },
       back() {
          this.editField = false;

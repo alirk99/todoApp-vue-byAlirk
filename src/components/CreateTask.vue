@@ -1,5 +1,5 @@
 <template>
-  <v-main class="mt-7 mb-4">
+  <v-main class="my-4">
       <v-text-field
          class=""
          v-model="newTodo.title"

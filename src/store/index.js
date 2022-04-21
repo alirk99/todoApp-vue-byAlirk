@@ -5,15 +5,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    dark: false,
     todos: [],
     todosPending: 0,
+    todosDisplay: "all"
   },
   getters: {
-    getDark: function (state) {
-      console.log("getDark fired in sevices");
-      return state.getDark;
-    },
     getTodos: function (state) {
       console.log("getTodos fired in sevices");
       return state.todos;
@@ -21,14 +17,13 @@ export default new Vuex.Store({
     getPending: function (state) {
       console.log("getPending fired in sevices");
       return state.todosPending;
-    }
+    },
+    getTodosDisplay: function (state) {
+      console.log("getTodosDisplay fired in sevices");
+      return state.todosDisplay;
+    },
   },
   mutations: {
-    editDark: function (state) {
-      console.log("editDark fired in sevices");
-      state.dark = !state.dark;
-      console.log(state.dark);
-    },
     addTodo: function (state, data) {
       console.log("addTodos fired in sevices");
       state.todos.unshift(data);
@@ -54,6 +49,10 @@ export default new Vuex.Store({
     setTodos: function (state, data) {
       console.log("setTodos fired in sevices");
       state.todos = data;
+    },
+    setTodosDisplay: function (state, data) {
+      console.log("setTodosDisplay fired in sevices");
+      state.todosDisplay = data;
     },
     findPending: function (state) {
       console.log("findPending fired in sevices");
