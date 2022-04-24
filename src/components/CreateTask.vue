@@ -34,16 +34,12 @@ export default {
          console.log(this.newTodo);
          
          this.createTodo(this.newTodo);
-         // question
          this.newTodo = {
             id: 0,
             title: "",
             status: false,
          };
       }
-      // addNewTodo() {
-      //    this.addTodo(this.newTodo);
-      // },
    }, 
 }
 </script>

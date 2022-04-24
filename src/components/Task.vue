@@ -35,6 +35,7 @@
          <v-btn icon @click="back">
             <v-icon>mdi-arrow-left</v-icon>
          </v-btn>
+         
          <v-list-item-content>
             <v-text-field
                class=""

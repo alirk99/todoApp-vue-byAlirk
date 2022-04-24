@@ -4,6 +4,7 @@
     :class="getDark ? 'dark-theme' : 'light-theme'"
     >
     <Banner />
+    <Navbar />
     <router-view></router-view>
   </v-app>
 </template>

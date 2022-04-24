@@ -1,18 +1,11 @@
 <template>
    <v-main >
       <v-card-text >
-         <v-row class="header align-center">
+         <v-row>
 
-            <v-card-title class="px-0 font" >To Do List</v-card-title>
-
-            <v-btn 
-               icon
-               @click="darkMode"
-               >
-               <v-icon 
-                  color="white"
-                  >{{icon}}</v-icon>
-            </v-btn>
+            <v-card-title  
+               class="px-0 font" 
+               >{{title}}</v-card-title>
 
          </v-row>
       </v-card-text>
@@ -20,31 +13,25 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+
 export default {
    data() {
       return {
-         icon: 'mdi-weather-night',
+         
       };
    },
    methods: {
-      ...mapMutations(["editDark"]),
-      darkMode() {
-         this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-         this.icon = (this.$vuetify.theme.dark) ? 'mdi-white-balance-sunny' : 'mdi-weather-night';
-      },
+
+   },
+   props: {
+      title: String
    }
 }
 </script>
 
 <style scoped>
-.header{
-   color: white;
-   display: flex;
-   justify-content: space-between;
-   align-content: center;
-}
 .font{
-   font-size: 2rem;
+   font-size: 1.8rem;
+   color: white;
 }
 </style>
